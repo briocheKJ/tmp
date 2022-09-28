@@ -12,7 +12,18 @@ struct Msg
     char content[64]="";
     void print()
     {
-    	printf("received type %d message\n",(int)type);
-    	printf("specific content: %s\n",content);
+	    printf("-------NEW-------\n");
+	if(type==1)
+	{
+    		printf("\033[33m received TEXT message\n\033[0m");
+		printf("\033[33m specific content: %s\n\033[0m",content);
+	}
+	else if(type==2)
+	{
+
+		printf("\033[32m received CONFRIMATION message\n\033[0m");
+		printf("\033[32m specific content: %s\n\033[0m",content);
+	}
+	printf("-----------------\n");
     }
 };

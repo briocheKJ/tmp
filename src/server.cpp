@@ -1,16 +1,13 @@
 #include "public_content.h"
 int main()
 {
-    umask(0);
-    if(mkfifo(MY_FIFO1,0666)<0)
+    if(access(MY_FIFO1,F_OK)&&mkfifo(MY_FIFO1,0666)<0)
     {
 	perror("mkfifo");
-	//return 1;
     }
-    if(mkfifo(MY_FIFO2,0666)<0)
+    if(access(MY_FIFO2,F_OK)&&mkfifo(MY_FIFO2,0666)<0)
     {
 	perror("mkfifo");
-	//return 1;
     }
     int fd1=open(MY_FIFO1,O_RDONLY);
     if(fd1<0)
