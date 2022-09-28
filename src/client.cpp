@@ -24,9 +24,10 @@ int main()
 	{
 	    buffer[s-1]='\0';
 	    msg.type=1;
+	    msg.getcur_and_pid();
 	    strcpy(msg.content,buffer);
 	    memcpy(buffer,&msg,sizeof(Msg));
-	    write(fd1,buffer,strlen(buffer));
+	    write(fd1,buffer,sizeof(Msg));
 	}
 	memset(buffer,0,sizeof(buffer));
 	s=read(fd2,buffer,sizeof(buffer)-1);

@@ -33,10 +33,11 @@ int main()
 
 	    msg.type=2;
 	    strcpy(msg.content,"successful!");
+	    msg.getcur_and_pid();
 	    
 	    memset(buffer,0,sizeof(buffer));
 	    memcpy(buffer,&msg,sizeof(Msg));
-	    write(fd2,buffer,strlen(buffer));
+	    write(fd2,buffer,sizeof(Msg));
 	    printf("sended confirmation message successfully\n");
 	}
 	else if(s==0)
